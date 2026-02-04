@@ -5,8 +5,7 @@ from langchain.chat_models import init_chat_model
 load_dotenv()
 
 
-def main():
-        os.environ["GROQ_API_KEY"]= os.getenv("GROQ_API_KEY")
+def main():       
         information = """
         Elon Reeve Musk FRS (; born June 28, 1971) is a businessman, known for his leadership of Tesla, SpaceX, X (formerly Twitter), and the Department of Government Efficiency (DOGE). Musk has been the wealthiest person in the world since 2021; as of May 2025, Forbes estimates his net worth to be US$424.7 billion.
 
@@ -30,8 +29,7 @@ def main():
             )
 
             # llm = ChatOllama(temperature=0, model="gemma3:270m")
-        llm = init_chat_model(model="groq:qwen/qwen3-32b" )
-        print(llm)
+        llm = init_chat_model(model="groq:qwen/qwen3-32b" )       
         chain = summary_prompt_template | llm
 
         response = chain.invoke(input={"information": information})
